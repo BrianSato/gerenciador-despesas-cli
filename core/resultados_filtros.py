@@ -2,7 +2,7 @@ from despesas_filtrar import filtrar_por_categoria as catg_filt
 from despesas_adicionar import escolher_categorias as catg_esc
 from despesas_filtrar import  filtrar_por_periodo as perio_filt
 from despesas_mensagens import ERROS
-from despesas_menu import msg_opcao_catg, msg_opcao_perid
+from cli.comando.despesas_menu import msg_opcao_catg, msg_opcao_perid
 
 def res_filtrar_categoria(despesas):
     categoria = catg_esc()
