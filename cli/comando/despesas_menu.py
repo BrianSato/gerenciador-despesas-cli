@@ -1,4 +1,4 @@
-from core.despesas_mensagens import MENSAGENS
+from core.despesas_mensagens_core import MENSAGENS
 
 def menu():
     print("\n-------GERENCIADOR DE DESPESAS-------")

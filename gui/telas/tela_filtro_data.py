@@ -3,7 +3,7 @@ from tkinter import ttk
 from core.despesas_listar_core import listar_despesas
 from core.despesas_arquivo_core import carregar_despesas
 
-class TelaListarDespesas(ttk.Frame):
+class TelaFiltroData(ttk.Frame):
 
     def __init__(self, parent, voltar_callback):
         super().__init__(parent)

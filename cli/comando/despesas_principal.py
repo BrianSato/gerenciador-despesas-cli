@@ -1,9 +1,9 @@
 #IMPORTANDO FUNCOES
 import despesas_menu as desp_menu
-from core.despesas_mensagens import MENSAGENS
-from core import despesas_listar as desp_list, despesas_adicionar, despesas_calculos as desp_calc, \
-    processar_filtros as pf, despesas_arquivo as desp_arq
-from core.despesas_adicionar import adiciona_despesa as desp_add
+from core.despesas_mensagens_core import MENSAGENS
+from core import despesas_listar_core as desp_list, despesas_adicionar_core, despesas_calculos_core as desp_calc, \
+    processar_filtros as pf, despesas_arquivo_core as desp_arq
+from core.despesas_adicionar_core import adiciona_despesa as desp_add
 
 #CARREGANDO DO ARQUIVO
 despesas = desp_arq.carregar_despesas()

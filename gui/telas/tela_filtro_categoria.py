@@ -1,18 +1,18 @@
 import tkinter as tk
 from tkinter import ttk
-from core.despesas_listar_core import listar_despesas
+from core.despesas_filtrar_core import filtrar_por_categoria
 from core.despesas_arquivo_core import carregar_despesas
 
-class TelaListarDespesas(ttk.Frame):
-
-    def __init__(self, parent, voltar_callback):
+class TelaFiltroCategoria(ttk.Frame):
+    def __init__(self, parent,categoria, voltar_callback):
         super().__init__(parent)
+        self.categoria = categoria
         self.voltar_callback = voltar_callback
         self.criar_widgets()
         self.carregar_dados()
 
     def criar_widgets(self):
-        titulo = ttk.Label(self,text = "Lista De despesas", font=("Aria", 14,"bold"))
+        titulo = ttk.Label(self,text = "Lista De despesas por Categoria", font=("Aria", 14,"bold"))
         titulo.pack(pady = 10)
 
         colunas = ("valor", "descricao","categoria","data")
@@ -33,7 +33,7 @@ class TelaListarDespesas(ttk.Frame):
 
     def carregar_dados(self):
             despesas = carregar_despesas()
-            dados = listar_despesas(despesas)
+            dados = filtrar_por_categoria(despesas,self.categoria)
 
             for despesa in dados:
                 self.tabela.insert(
