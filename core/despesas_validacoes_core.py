@@ -18,7 +18,7 @@ def validar_descricao(descricao):
          raise ValueError(ERROS["sem_descricao"])
     return descricao
 
-def categoria_var(categoria):
+def validar_categoria(categoria):
     if categoria not in CATEGORIAS.values():
         raise  ValueError(ERROS["erro_categoria"])
     return categoria
@@ -35,4 +35,5 @@ def validar_data(data):
 
     except ValueError:
         raise ValueError(ERROS["erro_data"])
+
 

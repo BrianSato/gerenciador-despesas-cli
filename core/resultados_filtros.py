@@ -1,11 +1,11 @@
 from despesas_filtrar_core import filtrar_por_categoria as catg_filt
-from despesas_adicionar_core import escolher_categorias as catg_esc
+from despesas_adicionar_core import validar_categoria as catg_val
 from despesas_filtrar_core import  filtrar_por_periodo as perio_filt
 from despesas_mensagens_core import ERROS
 from cli.comando.despesas_menu import msg_opcao_catg, msg_opcao_perid
 
 def res_filtrar_categoria(despesas):
-    categoria = catg_esc()
+    categoria = catg_val()
     filtradas = catg_filt(despesas, categoria)
     if not filtradas:
         print(ERROS["erro_categoria"])

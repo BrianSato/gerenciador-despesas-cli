@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import ttk
-
 from core.despesas_mensagens_core import CATEGORIAS,MENSAGENS,ERROS
 from gui.widgets.mensagem_gui import MensagemGUI
 from core.despesas_adicionar_core import adicionar_despesa_core
@@ -26,10 +25,10 @@ class TelaAdicionarDespesas(ttk.Frame):
         self.validar_descricao.grid(row=3, column=1, pady=5)
 
         ttk.Label(self, text="Categoria").grid(row=4, column=0, sticky="w", pady=7)
-        self.categoria_var = tk.StringVar()
+        self.categoria_selecionada = tk.StringVar()
         self.combo_categoria = ttk.Combobox(
             self,
-            textvariable=self.categoria_var,
+            textvariable=self.categoria_selecionada,
             values=list(CATEGORIAS.values()),
             state="readonly"
         )
@@ -59,7 +58,7 @@ class TelaAdicionarDespesas(ttk.Frame):
                 despesas,
                     self.validar_valor.get(),
                     self.validar_descricao.get(),
-                    self.categoria_var.get(),
+                    self.categoria_selecionada.get(),
                     self.validar_data.get()
                 )
             salva_despesas(despesas)

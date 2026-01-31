@@ -1,11 +1,13 @@
 import tkinter as tk
-from os.path import expanduser
 from tkinter import ttk
 from gui.telas.tela_adicionar import TelaAdicionarDespesas
+from gui.telas.tela_filtro_periodo import TelaFiltroPeriodo
 from gui.telas.tela_listar import TelaListarDespesas
 from gui.telas.tela_filtros import TelaFiltros
 from gui.telas.tela_filtro_categoria import TelaFiltroCategoria
-from core.despesas_mensagens_core import ERROS
+from gui.telas.tela_resultado_categoria import TelaResultadoCategoria
+from gui.telas.tela_resultado_periodo import TelaResultadoPeriodo
+
 
 class MainWindow(tk.Tk):
     def __init__(self):
@@ -54,17 +56,56 @@ class MainWindow(tk.Tk):
         self.tela_atual= TelaFiltros(
             parent= self.container,
             voltar_callback=self.mostrar_menu,
-            filtrar_categoria_callback=self.mostrar_tela_categoria
+            mostrar_tela= self.mostrar_tela,
+            filtrar_categoria_callback = self.mostrar_tela_categoria,
+            filtrar_periodo_callback = self.mostrar_tela_periodo
+
         )
         self.tela_atual.pack(fill="both",expand=True)
 
-    def mostrar_tela_categoria(self,categoria):
+    def mostrar_tela_categoria(self):
         if self.tela_atual:
             self.tela_atual.destroy()
 
         self.tela_atual= TelaFiltroCategoria(
             parent=self.container,
+            voltar_callback=self.mostrar_filtros,
+            resultado_categoria_callback=self.mostrar_resultado_categoria
+        )
+        self.tela_atual.pack(fill="both",expand=True)
+
+    def mostrar_resultado_categoria(self,categoria):
+        if self.tela_atual:
+            self.tela_atual.destroy()
+
+        self.tela_atual= TelaResultadoCategoria(
+            parent=self.container,
             categoria=categoria,
             voltar_callback=self.mostrar_filtros
         )
         self.tela_atual.pack(fill="both",expand=True)
+
+    def mostrar_tela_periodo(self):
+        if self.tela_atual:
+            self.tela_atual.destroy()
+
+        self.tela_atual= TelaFiltroPeriodo(
+            parent=self.container,
+            voltar_callback=self.mostrar_filtros,
+            resultado_periodo_callback=self.mostrar_resultado_periodo
+        )
+        self.tela_atual.pack(fill="both",expand=True)
+
+    def mostrar_resultado_periodo(self,data_inicio,data_fim):
+
+        if self.tela_atual:
+            self.tela_atual.destroy()
+
+        self.tela_atual= TelaResultadoPeriodo(
+            parent=self.container,
+            data_inicio=data_inicio,
+            data_fim = data_fim,
+            voltar_callback=self.mostrar_filtros
+        )
+        self.tela_atual.pack(fill="both",expand=True)
+
