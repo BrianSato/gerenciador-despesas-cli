@@ -4,10 +4,10 @@ from core.despesas_filtrar_core import filtrar_por_categoria
 from core.despesas_arquivo_core import carregar_despesas
 
 class TelaResultadoCategoria(ttk.Frame):
-    def __init__(self, parent,categoria, voltar_callback):
+    def __init__(self, parent,categoria, controller):
         super().__init__(parent)
         self.categoria = categoria
-        self.voltar_callback = voltar_callback
+        self.controller = controller
         self.criar_widgets()
         self.carregar_dados()
 
@@ -29,8 +29,11 @@ class TelaResultadoCategoria(ttk.Frame):
 
         self.tabela.pack(fill="both", expand=True, padx=10, pady=10)
 
-        ttk.Button(self, text="👈 Voltar", command=self.voltar_callback
-                   ).pack(pady=10)
+        ttk.Button(self, text="👈 Voltar Tela Filtros", command=lambda :self.controller.mostrar_tela("filtro")
+        ).pack(pady=10)
+
+        ttk.Button(self, text="👈 Voltar Menu Inicial", command=lambda :self.controller.mostrar_tela("menu")
+        ).pack(pady=10)
 
     def carregar_dados(self):
         despesas = carregar_despesas()

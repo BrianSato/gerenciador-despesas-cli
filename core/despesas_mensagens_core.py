@@ -6,12 +6,28 @@ CATEGORIAS = {
         5: "Cartao de Credito",
         6: "Outros"
     }
+MESES = {
+    "Janeiro": 1,
+    "Fevereiro": 2,
+    "Março": 3,
+    "Abril": 4,
+    "Maior": 5,
+    "Junho": 6,
+    "Julho": 7,
+    "Agosto": 8,
+    "Setembro": 9,
+    "Outubro": 10,
+    "Novembro": 11,
+    "Dezembro": 12
+}
 ERROS = {
     "sem_descricao": "❌Nenhuma descrição adicionada",
     "erro_valor": "❌ Valor inválido. Tente novamente",
     "erro_categoria": "❌Categoria inválida, tente novamente.",
     "erro_data": "❌Data inválida, tente novamente.",
-    "outros_erros": "❌Erro Inesperado."
+    "outros_erros": "❌Erro Inesperado.",
+    "erro_mes":"❌Selecione um mês válido!",
+    "erro_ano":"❌Selecione um ano válido!"
 }
 MENSAGENS = {
     "filtro_categora":"Você escolheu filtragem por CATEGORIA",
@@ -26,6 +42,7 @@ MENSAGENS = {
     "opcao_invalida":"❌ Opção inválida.",
     "despesa_salva":"💾 Despesas salvas com sucesso."
 }
+
 INPUTS = {
     "titulo_opcao":"DIGITE UMA DAS OPÇÕES ACIMA:",
     "categoria_n":"Informe o número da categoria:",

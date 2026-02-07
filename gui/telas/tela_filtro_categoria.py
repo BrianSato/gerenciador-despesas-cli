@@ -6,10 +6,9 @@ from gui.widgets.mensagem_gui import MensagemGUI
 
 
 class TelaFiltroCategoria(ttk.Frame):
-    def __init__(self, parent,voltar_callback,resultado_categoria_callback):
+    def __init__(self, parent,controller):
         super().__init__(parent)
-        self.voltar_callback = voltar_callback
-        self.resultado_categoria_callback = resultado_categoria_callback
+        self.controller=controller
         self.criar_widgets()
 
     def criar_widgets(self):
@@ -29,16 +28,19 @@ class TelaFiltroCategoria(ttk.Frame):
         ttk.Button(self, text="Filtrar", command=self.processar_filtro_categoria
         ).grid(row=2, column=0, pady=5)
 
-        ttk.Button(self, text="👈 Voltar Menu", command=self.voltar_callback
+        ttk.Button(self, text="👈 Voltar Menu", command=lambda :self.controller.mostrar_tela("filtro")
         ).grid(row=4, column=0, pady=5)
 
         self.mensagem = MensagemGUI(self)
         self.mensagem.grid(row=1, column=0, columnspan=2, pady=(0, 10))
 
+
     def processar_filtro_categoria(self):
 
         try:
             categoria = validar_categoria(self.categoria_selecionada.get())
-            self.resultado_categoria_callback(categoria)
+            self.controller.mostrar_tela("resultado_categoria",categoria = categoria)
         except ValueError:
             self.mensagem.erro(ERROS["erro_categoria"])
+
+

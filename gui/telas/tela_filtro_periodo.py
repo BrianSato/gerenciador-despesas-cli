@@ -6,10 +6,9 @@ from core.despesas_mensagens_core import ERROS
 
 class TelaFiltroPeriodo(ttk.Frame):
 
-    def __init__(self, parent, voltar_callback,resultado_periodo_callback):
+    def __init__(self, parent, controller):
         super().__init__(parent)
-        self.voltar_callback = voltar_callback
-        self.resultado_periodo_callback = resultado_periodo_callback
+        self.controller = controller
         self.criar_widgets()
 
 
@@ -28,7 +27,7 @@ class TelaFiltroPeriodo(ttk.Frame):
         ttk.Button(self, text="Filtrar", command=self.processar_filtro_periodo
         ).grid(row=4, column=0, pady=5)
 
-        ttk.Button(self, text="👈 Voltar Menu", command=self.voltar_callback
+        ttk.Button(self, text="👈 Voltar Menu", command=lambda:self.controller.mostrar_tela("filtro")
         ).grid(row=5, column=0, pady=5)
 
         self.mensagem = MensagemGUI(self)
@@ -38,6 +37,6 @@ class TelaFiltroPeriodo(ttk.Frame):
         try:
             data_inicio = validar_data(self.data_inicio.get())
             data_fim = validar_data(self.data_fim.get())
-            self.resultado_periodo_callback(data_inicio,data_fim)
+            self.controller.mostrar_tela("resultado_periodo",data_inicio = data_inicio,data_fim = data_fim)
         except ValueError:
             self.mensagem.erro(ERROS["erro_data"])

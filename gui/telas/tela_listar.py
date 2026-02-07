@@ -5,9 +5,9 @@ from core.despesas_arquivo_core import carregar_despesas
 
 class TelaListarDespesas(ttk.Frame):
 
-    def __init__(self, parent, voltar_callback):
+    def __init__(self, parent, controller):
         super().__init__(parent)
-        self.voltar_callback = voltar_callback
+        self.controller = controller
         self.criar_widgets()
         self.carregar_dados()
 
@@ -28,7 +28,7 @@ class TelaListarDespesas(ttk.Frame):
 
         self.tabela.pack(fill = "both", expand = True, padx = 10, pady = 10)
 
-        ttk.Button(self, text="👈 Voltar", command=self.voltar_callback
+        ttk.Button(self, text="👈 Voltar", command=lambda :self.controller.mostrar_tela("menu")
         ).pack(pady=10)
 
     def carregar_dados(self):
