@@ -1,46 +1,46 @@
-💰 Gerenciador de Despesas Pessoais (Python/Tkinter)
-🔹 Descrição
+##💰 Gerenciador de Despesas Pessoais (Python/Tkinter)
+#🔹 Descrição
 
 Aplicativo de gerenciamento de despesas pessoais desenvolvido em Python com interface gráfica em Tkinter.
 Permite adicionar, listar, filtrar e deletar despesas de forma segura e intuitiva, mantendo uma arquitetura limpa GUI + CORE.
 
-🔹 Funcionalidades
+#🔹 Funcionalidades
 
-📝 Adicionar Despesa
+#📝 Adicionar Despesa
 
 Insere valor, descrição, categoria e data.
 
 IDs gerados automaticamente no CORE.
 
-📊 Listar Despesas
+#📊 Listar Despesas
 
  - Tabela organizada com todas as despesas.
 
  - Coluna ID usada internamente para DELETE.
 
-🔍 Filtrar Despesas
+#🔍 Filtrar Despesas
 
  - Por categoria ou período.
 
  - Resultados exibidos na mesma tela, mantendo contexto.
 
-❌ Excluir Despesa (DELETE)
+#❌ Excluir Despesa (DELETE)
 
  - Seleção direta da linha na tabela.
 
  - Confirmação antes de apagar, evitando erros.
 
-✅ Validação de Dados
+#✅ Validação de Dados
 
  - Valores, descrições, categorias e datas validados no CORE.
 
-🏗 Arquitetura Limpa
+#🏗 Arquitetura Limpa
 
  - Lógica de dados isolada no CORE.
 
  - GUI apenas exibe dados e recebe inputs do usuário.
 
-🔹 Tecnologias
+#🔹 Tecnologias
 
  - Python 3.13
 
@@ -48,7 +48,7 @@ IDs gerados automaticamente no CORE.
 
  - SON (armazenamento de dados)
 
-🔹 Estrutura do Projeto
+#🔹 Estrutura do Projeto
 ```
 gerenciador_despesas/
 ├── gui/
@@ -66,7 +66,7 @@ gerenciador_despesas/
 └── README.md
 ```
 
-🔹 Como Rodar
+#🔹 Como Rodar
 
 1- Clone o repositório:
 ```bash
@@ -81,7 +81,7 @@ cd gerenciador_despesas
 python gui/main.py
 ```
 
-🔹 Próximos Passos (Planejados)
+#🔹 Próximos Passos (Planejados)
 
  - 📈 Estatísticas avançadas com gráficos.
 
