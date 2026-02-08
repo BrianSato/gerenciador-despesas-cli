@@ -1,13 +1,16 @@
 from datetime import datetime
+from core.despesas_arquivo_core import carregar_despesas
 
-def filtrar_por_categoria(despesas, categoria):
+despesas = carregar_despesas()
+
+def filtrar_por_categoria(categoria):
 
      return[
         despesa for despesa in despesas
         if despesa.get("categoria") == categoria
     ]
 
-def filtrar_por_periodo(despesas, data_inicio, data_fim):
+def filtrar_por_periodo(data_inicio, data_fim):
 
     data_inicio = datetime.strptime(data_inicio, "%Y-%m-%d").date()
     data_fim = datetime.strptime(data_fim,"%Y-%m-%d").date()
@@ -20,7 +23,7 @@ def filtrar_por_periodo(despesas, data_inicio, data_fim):
                 resultado.append(despesa)
     return resultado
 
-def filtrar_anos_disponiveis(despesas):  # Uma funcao que extrai apenas os anos das despesas existentes na lista
+def filtrar_anos_disponiveis():  # Uma funcao que extrai apenas os anos das despesas existentes na lista
     anos = set()
 
     for despesa in despesas:
@@ -32,7 +35,7 @@ def filtrar_anos_disponiveis(despesas):  # Uma funcao que extrai apenas os anos 
 
     return list(anos)
 
-def filtrar_por_mes_ano(despesas,data_mes,data_ano):
+def filtrar_por_mes_ano(data_mes,data_ano):
     lista_mes_ano = []
     for despesa in despesas:
 

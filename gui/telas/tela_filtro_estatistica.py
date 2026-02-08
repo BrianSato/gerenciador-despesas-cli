@@ -3,15 +3,13 @@ from tkinter import ttk
 from core.despesas_mensagens_core import MESES,ERROS
 from core.despesas_filtrar_core import filtrar_anos_disponiveis
 from core.despesas_filtrar_core import filtrar_por_mes_ano
-from core.despesas_arquivo_core import carregar_despesas
 from gui.widgets.mensagem_gui import MensagemGUI
 from gui.config.estilos import *
 
 class TelaFiltroEstatistica(ttk.Frame):
     def __init__(self,parent,controller):
         super().__init__(parent)
-        self.despesas = carregar_despesas()#carregou o arquivo em despesas_arquivo_CORE
-        self.anos = filtrar_anos_disponiveis(self.despesas)#chamou funcao do do CORE levando os dados do arquivo
+        self.anos = filtrar_anos_disponiveis()#chamou funcao do do CORE levando os dados do arquivo
         self.anos_str = [str(ano)for ano in self.anos]#recebeu o resultado da funcao acima e converteu em STRING
         self.controller=controller
         self._configurar_grid()
@@ -75,7 +73,6 @@ class TelaFiltroEstatistica(ttk.Frame):
 
     def processar_filtro_estatistica(self):
 
-        despesas = carregar_despesas()
         mes_nome = self.data_mes.get()#Pega o valor informado pelo usuário (ainda em formato "Janeiro")
         mes = MESES.get(mes_nome)  # Pega MES_NOME e converte para o valor correspondente dentro do dicionpario MESES
         if mes is None:
@@ -87,7 +84,7 @@ class TelaFiltroEstatistica(ttk.Frame):
             self.mensagem.erro(ERROS["erro_ano"])
             return
 
-        lista_mes_ano = filtrar_por_mes_ano(despesas, mes,ano)
+        lista_mes_ano = filtrar_por_mes_ano(mes,ano)
         if not lista_mes_ano:
             self.mensagem.erro(ERROS["erro_sem_dados"])
             return

@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from core.despesas_listar_core import listar_despesas
-from core.despesas_arquivo_core import carregar_despesas
+from core.despesas_listar_core import listar_despesas_core
 from gui.config.estilos import *
 
 class TelaListarDespesas(ttk.Frame):
@@ -33,8 +32,7 @@ class TelaListarDespesas(ttk.Frame):
         ).pack(pady=10)
 
     def carregar_dados(self):
-            despesas = carregar_despesas()
-            dados = listar_despesas(despesas)
+            dados = listar_despesas_core()
 
             for despesa in dados:
                 self.tabela.insert(

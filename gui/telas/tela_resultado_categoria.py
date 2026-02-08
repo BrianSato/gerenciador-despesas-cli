@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
 from core.despesas_filtrar_core import filtrar_por_categoria
-from core.despesas_arquivo_core import carregar_despesas
 from gui.config.estilos import *
 
 class TelaResultadoCategoria(ttk.Frame):
@@ -40,8 +39,7 @@ class TelaResultadoCategoria(ttk.Frame):
         ).pack(pady=10)
 
     def carregar_dados(self):
-        despesas = carregar_despesas()
-        dados = filtrar_por_categoria(despesas, self.categoria)
+        dados = filtrar_por_categoria(self.categoria)
 
         for despesa in dados:
             self.tabela.insert(

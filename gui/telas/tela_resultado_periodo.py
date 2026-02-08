@@ -1,6 +1,5 @@
 from tkinter import ttk
 from core.despesas_filtrar_core import filtrar_por_periodo
-from core.despesas_arquivo_core import carregar_despesas
 from gui.config.estilos import *
 
 class TelaResultadoPeriodo(ttk.Frame):
@@ -37,8 +36,7 @@ class TelaResultadoPeriodo(ttk.Frame):
 
     def carregar_dados(self):
 
-        despesas = carregar_despesas()
-        dados = filtrar_por_periodo(despesas, self.data_inicio,self.data_fim)
+        dados = filtrar_por_periodo(self.data_inicio,self.data_fim)
 
         for despesa in dados:
             self.tabela.insert(

@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import ttk
 from core.despesas_mensagens_core import CATEGORIAS,MENSAGENS,ERROS
 from core.despesas_adicionar_core import adicionar_despesa_core
-from  core.despesas_arquivo_core import carregar_despesas,salva_despesas
 from gui.widgets.mensagem_gui import MensagemGUI
 from gui.config.estilos import *
 
@@ -73,16 +72,12 @@ class TelaAdicionarDespesas(ttk.Frame):
         self.mensagem.limpar()
         try:
 
-            despesas= carregar_despesas()
-
             adicionar_despesa_core(
-                despesas,
                     self.validar_valor.get(),
                     self.validar_descricao.get(),
                     self.categoria_selecionada.get(),
                     self.validar_data.get()
                 )
-            salva_despesas(despesas)
 
             self.mensagem.sucesso(MENSAGENS["despesa_adicionada"])
             self._limpar_campos()
