@@ -61,7 +61,7 @@ class MainWindow(tk.Tk):
             self.tela_atual.destroy()
 
         self.tela_atual= TelaFiltros(
-            parent= self.container,
+            parent= self.container
         )
         self.tela_atual.pack(fill="both",expand=True)
 
@@ -70,7 +70,7 @@ class MainWindow(tk.Tk):
             self.tela_atual.destroy()
 
         self.tela_atual= TelaFiltroCategoria(
-            parent=self.container,
+            parent=self.container
         )
         self.tela_atual.pack(fill="both",expand=True)
 
@@ -80,7 +80,7 @@ class MainWindow(tk.Tk):
 
         self.tela_atual= TelaResultadoCategoria(
             parent=self.container,
-            categoria=categoria,
+            categoria=categoria
         )
         self.tela_atual.pack(fill="both",expand=True)
 
@@ -89,7 +89,7 @@ class MainWindow(tk.Tk):
             self.tela_atual.destroy()
 
         self.tela_atual= TelaFiltroPeriodo(
-            parent=self.container,
+            parent=self.container
         )
         self.tela_atual.pack(fill="both",expand=True)
 
@@ -101,7 +101,7 @@ class MainWindow(tk.Tk):
         self.tela_atual= TelaResultadoPeriodo(
             parent=self.container,
             data_inicio=data_inicio,
-            data_fim = data_fim,
+            data_fim = data_fim
         )
         self.tela_atual.pack(fill="both",expand=True)
 
@@ -110,7 +110,7 @@ class MainWindow(tk.Tk):
             self.tela_atual.destroy()
 
         self.tela_atual= TelaFiltroEstatistica(
-            parent= self.container,
+            parent= self.container
         )
         self.tela_atual.pack(fill="both",expand=True)
 
@@ -120,6 +120,6 @@ class MainWindow(tk.Tk):
 
         self.tela_atual= TelaResultadoEstatistica(
             parent= self.container,
-            lista_mes_ano= lista_mes_ano,
+            lista_mes_ano= lista_mes_ano
         )
         self.tela_atual.pack(fill="both",expand=True)

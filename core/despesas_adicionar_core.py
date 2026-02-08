@@ -5,13 +5,13 @@ def adicionar_despesa_core(valor,descricao,categoria,data):
     despesas = carregar_despesas()
 
     if despesas:
-        ultimo_id = despesas [-1]["id"]
+        ultimo_id = despesas [-1]["ID"]
         novo_id = ultimo_id +1
     else:
         novo_id = 1
 
     despesa = {
-        "id": novo_id,
+        "ID": novo_id,
         "valor": validar_valor(valor),
         "descricao": validar_descricao(descricao),
         "categoria": validar_categoria(categoria),

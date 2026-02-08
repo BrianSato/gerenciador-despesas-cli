@@ -13,6 +13,7 @@ venv/
 # ===== Arquivos locais / dados =====
 data/despesas.json
 gui/despesas.json
+explicacoes_codigos.txt
 
 # ===== Sistema =====
 .DS_Store

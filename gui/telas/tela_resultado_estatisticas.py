@@ -45,9 +45,10 @@ class TelaResultadoEstatistica(ttk.Frame):
                  ).grid(row=linha + 2, column=0, pady=(PADY_BOTAO))
 
         #Tabela
-        colunas = ("valor", "descricao", "categoria", "data")
+        colunas = ("ID","valor", "descricao", "categoria", "data")
 
         self.tabela = ttk.Treeview(self, columns=colunas, show="headings")
+        self.tabela.heading("ID", text="ID"),
         self.tabela.heading("valor", text="Valor"),
         self.tabela.heading("descricao", text="Descrição"),
         self.tabela.heading("categoria", text="Categoria"),
@@ -66,6 +67,7 @@ class TelaResultadoEstatistica(ttk.Frame):
                     "",
                     "end",
                     values = (
+                        despesa.get("ID",""),
                         despesa.get("valor",""),
                         despesa.get("descricao",""),
                         despesa.get("categoria",""),

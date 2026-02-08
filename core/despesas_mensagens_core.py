@@ -28,7 +28,9 @@ ERROS = {
     "erro_sem_dados":"❌Não há despesas neste periodo",
     "outros_erros": "❌Erro Inesperado.",
     "erro_mes":"❌Selecione um mês válido!",
-    "erro_ano":"❌Selecione um ano válido!"
+    "erro_ano":"❌Selecione um ano válido!",
+    "erro_sem_delete":"❌Selecione uma despesa para deletar",
+    "erro_delete":"❌Erro ao deletar a despesa."
 }
 MENSAGENS = {
     "filtro_categora":"Você escolheu filtragem por CATEGORIA",
@@ -41,7 +43,8 @@ MENSAGENS = {
     "outras_despesas":"Outras Despesas",
     "fim_programa":"👋 Programa encerrado.",
     "opcao_invalida":"❌ Opção inválida.",
-    "despesa_salva":"💾 Despesas salvas com sucesso."
+    "despesa_salva":"💾 Despesas salvas com sucesso.",
+    "despesa_delete_sucesso":"✅ Despesa Deletada com Sucesso!"
 }
 
 INPUTS = {
