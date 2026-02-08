@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from core.despesas_filtrar_core import filtrar_por_categoria
 from core.despesas_arquivo_core import carregar_despesas
+from gui.config.estilos import *
 
 class TelaResultadoCategoria(ttk.Frame):
     def __init__(self, parent,categoria, controller):
@@ -13,9 +14,11 @@ class TelaResultadoCategoria(ttk.Frame):
 
 
     def criar_widgets(self):
-        titulo = ttk.Label(self, text="Lista De despesas por Categoria", font=("Aria", 14, "bold"))
+        #Subtitulo
+        titulo = ttk.Label(self, text="Lista De despesas por Categoria", font=(FONTE_SUBTITULO))
         titulo.pack(pady=10)
 
+        #Tabela
         colunas = ("valor", "descricao", "categoria", "data")
 
         self.tabela = ttk.Treeview(self, columns=colunas, show="headings")
@@ -29,10 +32,11 @@ class TelaResultadoCategoria(ttk.Frame):
 
         self.tabela.pack(fill="both", expand=True, padx=10, pady=10)
 
-        ttk.Button(self, text="👈 Voltar Tela Filtros", command=lambda :self.controller.mostrar_tela("filtro")
+        #Botões
+        ttk.Button(self, text="👈 Voltar Tela Filtros",width=(WIDGET_PADRAO), command=lambda :self.controller.mostrar_tela("filtro")
         ).pack(pady=10)
 
-        ttk.Button(self, text="👈 Voltar Menu Inicial", command=lambda :self.controller.mostrar_tela("menu")
+        ttk.Button(self, text="👈 Voltar Menu Inicial",width=(WIDGET_PADRAO), command=lambda :self.controller.mostrar_tela("menu")
         ).pack(pady=10)
 
     def carregar_dados(self):

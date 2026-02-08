@@ -1,3 +1,4 @@
+
 def processar_maior_despesa(lista_mes_ano):
     maior = lista_mes_ano[0]["valor"]
 

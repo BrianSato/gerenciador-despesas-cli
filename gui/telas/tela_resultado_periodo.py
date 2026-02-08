@@ -1,6 +1,7 @@
 from tkinter import ttk
 from core.despesas_filtrar_core import filtrar_por_periodo
 from core.despesas_arquivo_core import carregar_despesas
+from gui.config.estilos import *
 
 class TelaResultadoPeriodo(ttk.Frame):
     def __init__(self, parent,data_inicio,data_fim, controller):
@@ -11,9 +12,9 @@ class TelaResultadoPeriodo(ttk.Frame):
         self.criar_widgets()
         self.carregar_dados()
 
-
     def criar_widgets(self):
-        titulo = ttk.Label(self, text="Lista De despesas por Periodo", font=("Aria", 14, "bold"))
+        #Subtitulo
+        titulo = ttk.Label(self, text="Lista De despesas por Periodo", font=(FONTE_SUBTITULO))
         titulo.pack(pady=10)
 
         colunas = ("valor", "descricao", "categoria", "data")
@@ -29,9 +30,9 @@ class TelaResultadoPeriodo(ttk.Frame):
 
         self.tabela.pack(fill="both", expand=True, padx=10, pady=10)
 
-        ttk.Button(self, text="👈 Voltar Tela Filtros", command=lambda :self.controller.mostrar_tela("filtro")
-                   ).pack(pady=10)
-        ttk.Button(self, text="👈 Voltar Tela Inicial", command=lambda: self.controller.mostrar_tela("menu")
+        ttk.Button(self, text="👈 Voltar Tela Filtros",width=(WIDGET_PADRAO), command=lambda :self.controller.mostrar_tela("filtro")
+                   ).pack(pady=5)
+        ttk.Button(self, text="👈 Voltar Tela Inicial", width=(WIDGET_PADRAO),command=lambda : self.controller.mostrar_tela("menu")
                    ).pack(pady=10)
 
     def carregar_dados(self):

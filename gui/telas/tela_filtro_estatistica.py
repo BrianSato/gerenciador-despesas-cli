@@ -5,6 +5,7 @@ from core.despesas_filtrar_core import filtrar_anos_disponiveis
 from core.despesas_filtrar_core import filtrar_por_mes_ano
 from core.despesas_arquivo_core import carregar_despesas
 from gui.widgets.mensagem_gui import MensagemGUI
+from gui.config.estilos import *
 
 class TelaFiltroEstatistica(ttk.Frame):
     def __init__(self,parent,controller):
@@ -13,43 +14,63 @@ class TelaFiltroEstatistica(ttk.Frame):
         self.anos = filtrar_anos_disponiveis(self.despesas)#chamou funcao do do CORE levando os dados do arquivo
         self.anos_str = [str(ano)for ano in self.anos]#recebeu o resultado da funcao acima e converteu em STRING
         self.controller=controller
+        self._configurar_grid()
         self.criar_widgets()
 
+    def _configurar_grid(self):
+        self.grid_columnconfigure(0, weight=1) #responsavel pelos labels
+
     def criar_widgets(self):
+        #Subtitulo
+        ttk.Label(self,text="Estatísticas de Despesas:",font=(FONTE_SUBTITULO)
+        ).grid(row=0,column=0,pady=(PADY_PADRAO_SUBTITULO))
 
-        ttk.Label(self,text="Estatísticas de Despesas:",font=("Arial",14)
-        ).grid(row=0,column=0,columnspan=2,pady=10)
+        # Area Mensagens de erro
+        self.mensagem = MensagemGUI(self)
+        self.mensagem.grid(row=1, column=0, pady=(PADY_MENSAGEM))
 
-        ttk.Label(self, text="Mês").grid(row=2, column=0, sticky="w", pady=7)
+        # Frame do Formulário
+        self.frame_formulario = ttk.Frame(self)
+        self.frame_formulario.grid(row=2, column=0, padx=(PADX_PADRAO), pady=(PADY_FORM), sticky="ew")
+
+        # Configurando as Colunas
+        self.frame_formulario.grid_columnconfigure(0, weight=0)  # Labels
+        self.frame_formulario.grid_columnconfigure(1, weight=1)  # Campos
+
+        # ComboBox
+        texto_inicial_mes = "Selecione o Mês"
+        texto_inicial_ano = "Selecione o Ano"
+
+        ttk.Label(self.frame_formulario, text="Mês").grid(row=0, column=0, pady=(PADY_CAMPO), padx=(PADX_LABEL),
+                                                                sticky="e")
         self.data_mes = tk.StringVar()
         self.combo_mes = ttk.Combobox(
-            self,
+            self.frame_formulario,
             textvariable=self.data_mes,
             values=list(MESES.keys()),
             state="readonly"
         )
-        self.combo_mes.grid(row=2, column=1, pady=5)
-        self.combo_mes.set("Escolha o mês")
+        self.combo_mes.set(texto_inicial_mes)
+        self.combo_mes.config(width=len(texto_inicial_mes))
+        self.combo_mes.grid(row=0, column=1, padx=(PADX_CAMPO), pady=(PADY_CAMPO), sticky="ew")
 
-        ttk.Label(self, text="Ano").grid(row=3, column=0, sticky="w", pady=7)
+        ttk.Label(self.frame_formulario, text="Ano").grid(row=1, column=0, pady=(PADY_CAMPO), padx=(PADX_LABEL),sticky="e")
         self.data_ano = tk.StringVar()
         self.combo_ano = ttk.Combobox(
-            self,
+            self.frame_formulario,
             textvariable=self.data_ano,
             values=self.anos_str,
             state="readonly"
         )
-        self.combo_ano.grid(row=3, column=1, pady=5)
-        self.combo_ano.set("Escolha o Ano")
+        self.combo_ano.set(texto_inicial_ano)
+        self.combo_ano.config(width=len(texto_inicial_ano))
+        self.combo_ano.grid(row=1, column=1, padx=(PADX_CAMPO), pady=(PADY_CAMPO), sticky="ew")
 
-        ttk.Button(self, text="Próxima página", command=self.processar_filtro_estatistica
-                   ).grid(row=4, column=0, pady=5)
+        ttk.Button(self, text="Próxima página",width=(WIDGET_PADRAO), command=self.processar_filtro_estatistica
+                   ).grid(row=4, column=0, pady=(PADY_BOTAO))
 
-        ttk.Button(self, text="👈 Voltar Menu", command=lambda :self.controller.mostrar_tela("menu")
-                   ).grid(row=5, column=0, pady=5)
-
-        self.mensagem = MensagemGUI(self)
-        self.mensagem.grid(row=1, column=0, columnspan=2, pady=(0, 10))
+        ttk.Button(self, text="👈 Voltar Menu",width=(WIDGET_PADRAO), command=lambda :self.controller.mostrar_tela("menu")
+                   ).grid(row=5, column=0, pady=(PADY_BOTAO))
 
 
     def processar_filtro_estatistica(self):
@@ -67,6 +88,9 @@ class TelaFiltroEstatistica(ttk.Frame):
             return
 
         lista_mes_ano = filtrar_por_mes_ano(despesas, mes,ano)
+        if not lista_mes_ano:
+            self.mensagem.erro(ERROS["erro_sem_dados"])
+            return
         self.controller.mostrar_tela("resultado_estatistica",lista_mes_ano = lista_mes_ano)
         # Chama a funcao no CORE para fazer a filtragem com base nos valores informados pelo usuário.
         #devolve lista_mes_ano

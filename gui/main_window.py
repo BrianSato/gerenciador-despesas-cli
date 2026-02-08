@@ -1,10 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
-
+from gui.config.estilos import *
 from gui.telas.tela_listar import TelaListarDespesas
 from gui.telas.tela_menu import TelaMenu
 from gui.telas.tela_adicionar import TelaAdicionarDespesas
-from gui.telas.tela_resultado_statisticas import TelaResultadoEstatistica
+from gui.telas.tela_resultado_estatisticas import TelaResultadoEstatistica
 from gui.telas.tela_filtro_periodo import TelaFiltroPeriodo
 from gui.telas.tela_filtros import TelaFiltros
 from gui.telas.tela_filtro_categoria import TelaFiltroCategoria
@@ -17,7 +17,7 @@ class MainWindow(tk.Tk):
         super().__init__()
 
         self.title("Gerenciador de Despesas")
-        tk.Label(self, text="Gerenciador de Despesas", font=("Arial", 16, "bold")).pack(pady=10)
+        tk.Label(self, text="Gerenciador de Despesas", font=(FONTE_TITULO)).pack(pady=10,padx=10)
 
         self.container = ttk.Frame(self)
         self.container.pack(fill="both",expand=True)
@@ -47,6 +47,8 @@ class MainWindow(tk.Tk):
             **kwargs
         )
         self.tela_atual.pack(fill="both",expand=True)
+        self.update_idletasks()
+        self.geometry("")
 
     def trocar_tela(self,nova_tela):
         if self.tela_atual:
@@ -116,27 +118,8 @@ class MainWindow(tk.Tk):
         if self.tela_atual:
             self.tela_atual.destroy()
 
-        self.tela_atual= TelaOpcoesEstatistica(
+        self.tela_atual= TelaResultadoEstatistica(
             parent= self.container,
             lista_mes_ano= lista_mes_ano,
         )
         self.tela_atual.pack(fill="both",expand=True)
-"""
-    def mostrar_resultado_estatistica(self,data_mes,data_ano,res_maior,res_menor,res_media,res_total):
-        if self.tela_atual:
-            self.tela_atual.destroy()
-
-        self.tela_atual= TelaResultadoEstatistica(
-            parent=self.container,
-            data_mes = data_mes,
-            data_ano = data_ano,
-            res_maior = res_maior,
-            res_menor = res_menor,
-            res_media = res_media,
-            res_total = res_total,
-        )
-        self.tela_atual.pack(fill="both",expand=True)
-
-"""
-
-

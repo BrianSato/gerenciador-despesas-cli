@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
 from core.despesas_estatisticas_core import *
-from gui.widgets.mensagem_gui import MensagemGUI
 from gui.config.estilos import *
 
 class TelaResultadoEstatistica(ttk.Frame):
@@ -22,11 +21,11 @@ class TelaResultadoEstatistica(ttk.Frame):
 
         #Titulo
         ttk.Label(self, text="Opções de Estatisticas", font=(FONTE_SUBTITULO)
-                  ).grid(row=0, column=0, pady=(PADY_PADRAO_SUBTITULO))
+                  ).grid(row=0, column=0, pady=(PADY_PADRAO))
 
         #O resultado das operações
         ttk.Label(self, textvariable=self.resultado, font=(FONTE_PADRAO)
-                  ).grid(row=1, column=0, pady=(PADY_PADRAO_SUBTITULO))
+                  ).grid(row=1, column=0, pady=(PADY_PADRAO))
 
         #Dicionário de Acões:
         acoes = {
@@ -57,10 +56,7 @@ class TelaResultadoEstatistica(ttk.Frame):
         for col in colunas:
             self.tabela.column(col, anchor="center")
 
-        self.tabela.grid(row=linha + 1, column=0, pady=5)
-
-        self.mensagem = MensagemGUI(self)
-        self.mensagem.grid(row=1, column=1, pady=(0, 10))
+        self.tabela.grid(row=linha + 1, column=0, pady=10,padx=(PADX_PADRAO))
 
     def carregar_dados(self):
             dados = self.lista_mes_ano

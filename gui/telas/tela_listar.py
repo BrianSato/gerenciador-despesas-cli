@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from core.despesas_listar_core import listar_despesas
 from core.despesas_arquivo_core import carregar_despesas
+from gui.config.estilos import *
 
 class TelaListarDespesas(ttk.Frame):
 
@@ -12,8 +13,8 @@ class TelaListarDespesas(ttk.Frame):
         self.carregar_dados()
 
     def criar_widgets(self):
-        titulo = ttk.Label(self,text = "Lista De despesas", font=("Aria", 14,"bold"))
-        titulo.pack(pady = 10)
+        ttk.Label(self,text = "Lista de despesas", font=(FONTE_SUBTITULO)
+        ).pack(pady = 10)
 
         colunas = ("valor", "descricao","categoria","data")
 
@@ -28,7 +29,7 @@ class TelaListarDespesas(ttk.Frame):
 
         self.tabela.pack(fill = "both", expand = True, padx = 10, pady = 10)
 
-        ttk.Button(self, text="👈 Voltar", command=lambda :self.controller.mostrar_tela("menu")
+        ttk.Button(self, text="👈 Voltar",width=(WIDGET_PADRAO), command=lambda :self.controller.mostrar_tela("menu")
         ).pack(pady=10)
 
     def carregar_dados(self):

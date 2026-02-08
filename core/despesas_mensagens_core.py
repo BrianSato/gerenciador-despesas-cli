@@ -25,6 +25,7 @@ ERROS = {
     "erro_valor": "❌ Valor inválido. Tente novamente",
     "erro_categoria": "❌Categoria inválida, tente novamente.",
     "erro_data": "❌Data inválida, tente novamente.",
+    "erro_sem_dados":"❌Não há despesas neste periodo",
     "outros_erros": "❌Erro Inesperado.",
     "erro_mes":"❌Selecione um mês válido!",
     "erro_ano":"❌Selecione um ano válido!"
