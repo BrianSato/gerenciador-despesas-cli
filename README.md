@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # 💰 Gerenciador de Despesas Pessoais (Python/Tkinter)
 
 ## 🔹 Descrição
+=======
+💰 Gerenciador de Despesas Pessoais (Python/Tkinter)
+
+🔹 Descrição
+>>>>>>> 2e2c8fd0cfa2e12573e35522cb2bbde0b4b1032f
 
 Aplicativo de gerenciamento de despesas pessoais desenvolvido em Python com interface gráfica em Tkinter.
 Permite adicionar, listar, filtrar e deletar despesas de forma segura e intuitiva, mantendo uma arquitetura limpa GUI + CORE.
