@@ -21,36 +21,39 @@ MESES = {
     "Dezembro": 12
 }
 ERROS = {
-    "sem_descricao": "❌Nenhuma descrição adicionada",
-    "erro_valor": "❌ Valor inválido. Tente novamente",
-    "erro_categoria": "❌Categoria inválida, tente novamente.",
-    "erro_data": "❌Data inválida, tente novamente.",
-    "erro_sem_dados":"❌Não há despesas neste periodo",
-    "outros_erros": "❌Erro Inesperado.",
-    "erro_mes":"❌Selecione um mês válido!",
-    "erro_ano":"❌Selecione um ano válido!",
-    "erro_sem_delete":"❌Selecione uma despesa para deletar",
-    "erro_delete":"❌Erro ao deletar a despesa."
+    "error_description": "Nenhuma descrição adicionada",
+    "error_value": " Valor inválido. Tente novamente",
+    "error_category": "Categoria inválida, tente novamente.",
+    "error_date": "Data inválida, tente novamente.",
+    "error_period":"Não há despesas neste periodo",
+    "outros_error": "Erro Inesperado.",
+    "error_month":"Selecione um mês válido!",
+    "error_year":"Selecione um ano válido!",
+    "error_delete":"Erro ao deletar a despesa.",
+    "error_in_update": "Selecione uma despesa para editar",
+    "error_update":"Erro ao editar a despesa.",
+    "error_selection":"Selecione uma das linhas"
 }
 MENSAGENS = {
-    "filtro_categora":"Você escolheu filtragem por CATEGORIA",
-    "filtro_data":"Você escolheu filtragem por PERIODO",
-    "data_inicial":"Informe a data inicial:",
-    "data_final":"Informe a data final:",
-    "opcao_categoria":"---- Opcões de Categoria: ----",
-    "despesa_adicionada":"✅ Despesa adicionada com sucesso!",
-    "titulo_despesa":"------LISTA DE DESPESAS------",
-    "outras_despesas":"Outras Despesas",
-    "fim_programa":"👋 Programa encerrado.",
-    "opcao_invalida":"❌ Opção inválida.",
-    "despesa_salva":"💾 Despesas salvas com sucesso.",
-    "despesa_delete_sucesso":"✅ Despesa Deletada com Sucesso!"
+    "filter_category":"Você escolheu filtragem por CATEGORIA",
+    "filter_date":"Você escolheu filtragem por PERIODO",
+    "initial_date":"Informe a data inicial:",
+    "final_date":"Informe a data final:",
+    "category_option":"---- Opcões de Categoria: ----",
+    "despesa_add":" Despesa adicionada com sucesso!",
+    "despesa_title":"------LISTA DE DESPESAS------",
+    "despesa_others":"Outras Despesas",
+    "close_program":" Programa encerrado.",
+    "invalid_option":" Opção inválida.",
+    "despesa_salve":" Despesas salvas com sucesso.",
+    "despesa_delete_success":" Despesa Deletada com Sucesso!",
+    "despesa_uptade":" Despesa editada com Sucesso!"
 }
 
 INPUTS = {
-    "titulo_opcao":"DIGITE UMA DAS OPÇÕES ACIMA:",
-    "categoria_n":"Informe o número da categoria:",
-    "categoria_v":"Informe o valor:",
-    "descricao":"Informe a descrição:",
-    "data":"Informe a data (YYYY=MM-DD) ou ENTER para hoje:"
+    "option_title":"DIGITE UMA DAS OPÇÕES ACIMA:",
+    "category_n":"Informe o número da categoria:",
+    "category_v":"Informe o valor:",
+    "description":"Informe a descrição:",
+    "date":"Informe a data (YYYY=MM-DD) ou ENTER para hoje:"
 }

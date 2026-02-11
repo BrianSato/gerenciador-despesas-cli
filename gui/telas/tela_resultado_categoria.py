@@ -1,4 +1,3 @@
-import tkinter as tk
 from tkinter import ttk
 from core.despesas_filtrar_core import filtrar_por_categoria
 from gui.config.estilos import *
@@ -14,7 +13,7 @@ class TelaResultadoCategoria(ttk.Frame):
 
     def criar_widgets(self):
         #Subtitulo
-        titulo = ttk.Label(self, text="Lista De despesas por Categoria", font=(FONTE_SUBTITULO))
+        titulo = ttk.Label(self, text="Lista De despesas por Categoria", font=FONTE_SUBTITULO)
         titulo.pack(pady=10)
 
         #Tabela
@@ -32,10 +31,10 @@ class TelaResultadoCategoria(ttk.Frame):
         self.tabela.pack(fill="both", expand=True, padx=10, pady=10)
 
         #Botões
-        ttk.Button(self, text="👈 Voltar Tela Filtros",width=(WIDGET_PADRAO), command=lambda :self.controller.mostrar_tela("filtro")
+        ttk.Button(self, text="👈 Voltar Tela Filtros",width=WIDGET_PADRAO, command=lambda :self.controller.mostrar_tela("filtro")
         ).pack(pady=10)
 
-        ttk.Button(self, text="👈 Voltar Menu Inicial",width=(WIDGET_PADRAO), command=lambda :self.controller.mostrar_tela("menu")
+        ttk.Button(self, text="👈 Voltar Menu Inicial",width=WIDGET_PADRAO, command=lambda :self.controller.mostrar_tela("menu")
         ).pack(pady=10)
 
     def carregar_dados(self):

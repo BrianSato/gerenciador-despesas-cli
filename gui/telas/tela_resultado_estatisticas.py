@@ -20,12 +20,12 @@ class TelaResultadoEstatistica(ttk.Frame):
         self.resultado = tk.StringVar(value="Clique em uma das opções abaixo 👇")
 
         #Titulo
-        ttk.Label(self, text="Opções de Estatisticas", font=(FONTE_SUBTITULO)
-                  ).grid(row=0, column=0, pady=(PADY_PADRAO))
+        ttk.Label(self, text="Opções de Estatisticas", font=FONTE_SUBTITULO
+                  ).grid(row=0, column=0, pady=PADY_PADRAO)
 
         #O resultado das operações
-        ttk.Label(self, textvariable=self.resultado, font=(FONTE_PADRAO)
-                  ).grid(row=1, column=0, pady=(PADY_PADRAO))
+        ttk.Label(self, textvariable=self.resultado, font=FONTE_PADRAO
+                  ).grid(row=1, column=0, pady=PADY_PADRAO)
 
         #Dicionário de Acões:
         acoes = {
@@ -37,12 +37,12 @@ class TelaResultadoEstatistica(ttk.Frame):
 
         linha = 2
         for texto,funcao in acoes.items():
-            ttk.Button(self, text=texto, width=(WIDGET_PADRAO),command=funcao
-                ).grid(row=linha, column=0, pady=(PADY_BOTAO))
+            ttk.Button(self, text=texto, width=WIDGET_PADRAO,command=funcao
+                ).grid(row=linha, column=0, pady=PADY_BOTAO)
             linha += 1
 
         ttk.Button(self, text="👈 Voltar", command=lambda: self.controller.mostrar_tela("menu")
-                 ).grid(row=linha + 2, column=0, pady=(PADY_BOTAO))
+                 ).grid(row=linha + 2, column=0, pady=PADY_BOTAO)
 
         #Tabela
         colunas = ("ID","valor", "descricao", "categoria", "data")
@@ -57,7 +57,7 @@ class TelaResultadoEstatistica(ttk.Frame):
         for col in colunas:
             self.tabela.column(col, anchor="center")
 
-        self.tabela.grid(row=linha + 1, column=0, pady=10,padx=(PADX_PADRAO))
+        self.tabela.grid(row=linha + 1, column=0, pady=10,padx=PADX_PADRAO)
 
     def carregar_dados(self):
             dados = self.lista_mes_ano

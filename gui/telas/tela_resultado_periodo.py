@@ -13,7 +13,7 @@ class TelaResultadoPeriodo(ttk.Frame):
 
     def criar_widgets(self):
         #Subtitulo
-        titulo = ttk.Label(self, text="Lista De despesas por Periodo", font=(FONTE_SUBTITULO))
+        titulo = ttk.Label(self, text="Lista De despesas por Periodo", font=FONTE_SUBTITULO)
         titulo.pack(pady=10)
 
         colunas = ("valor", "descricao", "categoria", "data")
@@ -29,9 +29,9 @@ class TelaResultadoPeriodo(ttk.Frame):
 
         self.tabela.pack(fill="both", expand=True, padx=10, pady=10)
 
-        ttk.Button(self, text="👈 Voltar Tela Filtros",width=(WIDGET_PADRAO), command=lambda :self.controller.mostrar_tela("filtro")
+        ttk.Button(self, text="👈 Voltar Tela Filtros",width=WIDGET_PADRAO, command=lambda :self.controller.mostrar_tela("filtro")
                    ).pack(pady=5)
-        ttk.Button(self, text="👈 Voltar Tela Inicial", width=(WIDGET_PADRAO),command=lambda : self.controller.mostrar_tela("menu")
+        ttk.Button(self, text="👈 Voltar Tela Inicial", width=WIDGET_PADRAO,command=lambda : self.controller.mostrar_tela("menu")
                    ).pack(pady=10)
 
     def carregar_dados(self):

@@ -14,8 +14,8 @@ class TelaMenu(ttk.Frame):
 
     def _criar_widgets(self):
         #SubTitulo
-        ttk.Label(self, text="Menu Principal", font=(FONTE_SUBTITULO)
-        ).grid(row=0,column=0,pady=(PADY_PADRAO_SUBTITULO),sticky="n")
+        ttk.Label(self, text="Menu Principal", font=FONTE_SUBTITULO
+        ).grid(row=0,column=0,pady=PADY_PADRAO_SUBTITULO,sticky="n")
 
         #Botoes
         botoes = [
@@ -25,6 +25,6 @@ class TelaMenu(ttk.Frame):
             ("Estatisticas","filtro_estatistica")
         ]
         for i, (texto,tela) in enumerate(botoes,start=1):
-            ttk.Button(self, text=texto,width=(WIDGET_PADRAO), command=lambda t=tela: self.controller.mostrar_tela(t)
-            ).grid(row=i,column=0,pady=(PADY_BOTAO))
+            ttk.Button(self, text=texto,width=WIDGET_PADRAO, command=lambda t=tela: self.controller.mostrar_tela(t)
+            ).grid(row=i,column=0,pady=PADY_BOTAO)
 

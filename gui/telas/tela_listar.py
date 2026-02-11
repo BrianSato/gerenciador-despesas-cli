@@ -3,7 +3,6 @@ from tkinter import ttk,messagebox
 from core.despesas_listar_core import listar_despesas_core
 from core.despesas_mensagens_core import ERROS,MENSAGENS
 from core.despesas_deletar_core import deletar_despesa_core
-from gui.widgets.mensagem_gui import MensagemGUI
 from gui.config.estilos import *
 
 class TelaListarDespesas(ttk.Frame):
@@ -20,12 +19,8 @@ class TelaListarDespesas(ttk.Frame):
 
     def criar_widgets(self):
         #Subtitulo
-        ttk.Label(self,text = "Lista de despesas", font=(FONTE_SUBTITULO)
-        ).grid(row=0, column=0, pady=(PADY_PADRAO))
-
-        # Area Mensagens de erro
-        self.mensagem = MensagemGUI(self)
-        self.mensagem.grid(row=1, column=0)
+        ttk.Label(self,text = "Lista de despesas", font=FONTE_SUBTITULO
+        ).grid(row=0, column=0, pady=PADY_PADRAO)
 
         #Tabela
         colunas = ("ID","valor", "descricao","categoria","data")
@@ -40,13 +35,17 @@ class TelaListarDespesas(ttk.Frame):
         for col in colunas:
             self.tabela.column(col, anchor = "center")
 
-        self.tabela.grid(row=2, column=0, pady=10,padx=(PADX_PADRAO))
+        self.tabela.grid(row=2, column=0, pady=10,padx=PADX_PADRAO)
 
-        ttk.Button(self, text="🗑 Apagar Despesa",width=(WIDGET_PADRAO), command=self.deletar_selecionado
-        ).grid(row=3, column=0, pady=(PADY_BOTAO))
+        #Botões
+        ttk.Button(self, text="📝 Editar Despesa", width=WIDGET_PADRAO, command=self.editar_selecionado
+        ).grid(row=3, column=0, pady=PADY_BOTAO)
 
-        ttk.Button(self, text="👈 Voltar", width=(WIDGET_PADRAO), command=lambda: self.controller.mostrar_tela("menu")
-        ).grid(row=4, column=0, pady=(PADY_BOTAO))
+        ttk.Button(self, text="🗑 Apagar Despesa",width=WIDGET_PADRAO, command=self.deletar_selecionado
+        ).grid(row=4, column=0, pady=PADY_BOTAO)
+
+        ttk.Button(self, text="👈 Voltar", width=WIDGET_PADRAO, command=lambda: self.controller.mostrar_tela("menu")
+        ).grid(row=5, column=0, pady=PADY_BOTAO)
 
     def carregar_dados(self):
             dados = listar_despesas_core()
@@ -64,15 +63,47 @@ class TelaListarDespesas(ttk.Frame):
                     )
                 )
 
+    def editar_selecionado(self):
+        # pega o item selecionado
+        selecionado = self.tabela.selection()[0]
+
+        if not selecionado:
+            messagebox.showerror("Erro",ERROS["error_selection"])
+            return
+
+        # pega o ID do item selecionado
+        item = self.tabela.item(selecionado)
+        valores = item["values"]
+
+        # Confirmação
+        confirm = messagebox.askyesno(
+            title="Confirmação",
+            message="Tem certeza que deseja editar esta despesa?"
+        )
+        if not confirm:
+            return  # Usuário Cancelou
+
+        # Reutiliza a Tela Adicionar e passa Despesas como Parametro
+        despesa_selecionada = {
+            "ID": valores[0],
+            "valor": valores[1],
+            "descricao": valores[2],
+            "categoria": valores[3],
+            "data": valores[4]
+        }
+        #Chama a tela adicionar
+        self.controller.mostrar_tela("adicionar",despesa=despesa_selecionada)
+
     def deletar_selecionado(self):
-        #pega o item selecionado
+        #faz a verificação se alguma linha foi selecionada da tabela
         selecionado = self.tabela.selection()
 
         if not selecionado:
-            self.mensagem.erro("erro_sem_delete")
+            messagebox.showerror("Erro", ERROS["error_selection"])
             return
 
-        #pega o ID do item selecionado(supondo que ID esta na primeira coluna [0])
+        # pega o ID do item selecionado(supondo que ID esta na primeira coluna [0])
+        selecionado = selecionado[0]
         item = self.tabela.item(selecionado)
         id_para_deletar = int(item["values"][0])
 
@@ -89,6 +120,6 @@ class TelaListarDespesas(ttk.Frame):
         if sucesso:
             #remove a linha da tabela
             self.tabela.delete(selecionado)
-            self.mensagem.sucesso(MENSAGENS["despesa_delete_sucesso"])
+            messagebox.showinfo("Sucesso",MENSAGENS["despesa_delete_success"])
         else:
-            self.mensagem.erro(ERROS["erro_delete"])
+            messagebox.showerror("Erro",ERROS["error_delete"])
