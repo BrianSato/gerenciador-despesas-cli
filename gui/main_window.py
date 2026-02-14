@@ -22,9 +22,10 @@ class MainWindow(tk.Tk):
         super().__init__()
 
         self.title("Gerenciador de Despesas")
-        caminho = resource_path("assets/porquinho_gerente.ico")
 
+        caminho = resource_path("assets/porquinho_gerente.ico")
         self.iconbitmap(caminho)
+
         tk.Label(self, text="Gerenciador de Despesas", font=FONTE_TITULO).pack(pady=10,padx=10)
 
         self.container = ttk.Frame(self)
