@@ -22,6 +22,8 @@ class TelaAdicionarDespesas(ttk.Frame):
             self._carregar_dados_para_edicao()
             self._configurar_modo_edicao()
 
+
+
     def _configurar_grid(self):
         self.grid_columnconfigure(0, weight=1) #responsavel pelos labels
 
@@ -75,7 +77,7 @@ class TelaAdicionarDespesas(ttk.Frame):
             ).grid(row=7, column=0, pady=5, padx=PADY_BOTAO)
 
     def _salvar(self):
-        self.mensagem.limpar()
+
         try:
 
             adicionar_despesa_core(

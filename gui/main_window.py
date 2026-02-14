@@ -1,5 +1,8 @@
+import os
 import tkinter as tk
 from tkinter import ttk
+
+from utils.caminhos import resource_path
 from gui.config.estilos import *
 from gui.telas.tela_listar import TelaListarDespesas
 from gui.telas.tela_menu import TelaMenu
@@ -12,12 +15,17 @@ from gui.telas.tela_resultado_categoria import TelaResultadoCategoria
 from gui.telas.tela_resultado_periodo import TelaResultadoPeriodo
 from gui.telas.tela_filtro_estatistica import TelaFiltroEstatistica
 
+
+
 class MainWindow(tk.Tk):
     def __init__(self):
         super().__init__()
 
         self.title("Gerenciador de Despesas")
-        tk.Label(self, text="Gerenciador de Despesas", font=(FONTE_TITULO)).pack(pady=10,padx=10)
+        caminho = resource_path("assets/icone_multiresolucao.ico")
+
+        self.iconbitmap(caminho)
+        tk.Label(self, text="Gerenciador de Despesas", font=FONTE_TITULO).pack(pady=10,padx=10)
 
         self.container = ttk.Frame(self)
         self.container.pack(fill="both",expand=True)
@@ -61,8 +69,7 @@ class MainWindow(tk.Tk):
             self.tela_atual.destroy()
 
         self.tela_atual= TelaFiltros(
-            parent= self.container
-        )
+            parent= self.container)
         self.tela_atual.pack(fill="both",expand=True)
 
     def mostrar_tela_categoria(self):
@@ -123,3 +130,4 @@ class MainWindow(tk.Tk):
             lista_mes_ano= lista_mes_ano
         )
         self.tela_atual.pack(fill="both",expand=True)
+

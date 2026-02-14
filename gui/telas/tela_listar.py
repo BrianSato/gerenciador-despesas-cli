@@ -65,13 +65,14 @@ class TelaListarDespesas(ttk.Frame):
 
     def editar_selecionado(self):
         # pega o item selecionado
-        selecionado = self.tabela.selection()[0]
+        selecionado = self.tabela.selection()
 
         if not selecionado:
             messagebox.showerror("Erro",ERROS["error_selection"])
             return
 
-        # pega o ID do item selecionado
+        # pega o ID do item selecionado(supondo que ID esta na primeira coluna [0])
+        selecionado = selecionado[0]
         item = self.tabela.item(selecionado)
         valores = item["values"]
 

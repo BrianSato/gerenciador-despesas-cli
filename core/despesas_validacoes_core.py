@@ -10,17 +10,17 @@ def validar_valor(valor):
             raise  ValueError
         return  valor
     except ValueError:
-        raise ValueError(ERROS["erro_valor"])
+        raise ValueError(ERROS["error_value"])
 
 def validar_descricao(descricao):
     descricao = descricao.strip()
     if not descricao:
-         raise ValueError(ERROS["sem_descricao"])
+         raise ValueError(ERROS["error_description"])
     return descricao
 
 def validar_categoria(categoria):
     if categoria not in CATEGORIAS.values():
-        raise  ValueError(ERROS["erro_categoria"])
+        raise  ValueError(ERROS["error_category"])
     return categoria
 
 def validar_data(data):
@@ -34,6 +34,6 @@ def validar_data(data):
         return data
 
     except ValueError:
-        raise ValueError(ERROS["erro_data"])
+        raise ValueError(ERROS["error_date"])
 
 

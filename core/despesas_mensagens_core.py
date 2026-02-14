@@ -47,7 +47,7 @@ MENSAGENS = {
     "invalid_option":" Opção inválida.",
     "despesa_salve":" Despesas salvas com sucesso.",
     "despesa_delete_success":" Despesa Deletada com Sucesso!",
-    "despesa_uptade":" Despesa editada com Sucesso!"
+    "despesa_update":" Despesa editada com Sucesso!"
 }
 
 INPUTS = {
