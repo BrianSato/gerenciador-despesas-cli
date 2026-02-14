@@ -18,3 +18,9 @@ explicacoes_codigos.txt
 # ===== Sistema =====
 .DS_Store
 Thumbs.db
+
+# ===== PyInstaller =====
+build/
+dist/
+*.spec
+
