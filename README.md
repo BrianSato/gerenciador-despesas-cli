@@ -27,9 +27,8 @@ O projeto evoluiu de uma versão inicial em terminal para uma aplicação com in
 
 ## 📷 Interface
 
-'''bash
 ![Menu Principal](assets/8634092f-ed7f-4546-8402-da66e8dad1eb.jpeg)
-'''
+
 ⸻
 
 ## ▶️ Como executar
