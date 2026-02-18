@@ -34,15 +34,17 @@ O projeto evoluiu de uma versão inicial em terminal para uma aplicação com in
 ## ▶️ Como executar
 
 Executar pelo código
-	1.	Clone o repositório:
- 
-    git clone https://github.com/BrianSato/gerenciador-despesas-cli.git
 
+1.	Clone o repositório:
+```bash
+   git clone https://github.com/BrianSato/gerenciador-despesas-cli.git
+```
 2.	Acesse a pasta do projeto
     
 3.	Execute o arquivo principal:
-   	 python      nome_do_arquivo_principal.py
- 
+```bash
+   	 python nome_do_arquivo_principal.py
+```
  
 ⸻
 
