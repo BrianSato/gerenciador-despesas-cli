@@ -25,14 +25,6 @@ def adiciona_despesa(despesas):
         categoria = escolher_categorias()
         data = obter_data()
 
-        despesa = {
-            "valor": valor,
-            "descricao": descricao,
-            "categoria" : categoria,
-            "data": data
-        }
-
-        despesas.append(despesa)
         print(MENSAGENS["despesa_adicionada"])
     except ValueError:
         print(ERROS["erro_valor"])
@@ -49,3 +41,4 @@ def obter_data():
             return data
         except ValueError:
             print(MENSAGENS["data_final"])
+

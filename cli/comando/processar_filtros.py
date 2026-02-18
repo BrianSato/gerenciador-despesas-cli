@@ -1,8 +1,8 @@
-import despesas_menu as desp_menu
+from cli.comando import despesas_menu as desp_menu
 import resultados_filtros as res_filt
 import despesas_adicionar
 from despesas_mensagens import ERROS
-from despesas_menu import msg_data_inicio, msg_data_fim
+from cli.comando.despesas_menu import msg_data_inicio, msg_data_fim
 
 def processar_filtros(despesas):
 

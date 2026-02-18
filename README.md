@@ -1,97 +1,94 @@
-# 💰 Gerenciador de Despesas em Python (CLI)
 
-Projeto desenvolvido com o objetivo de consolidar conceitos fundamentais de programação em Python
-por meio da construção de um sistema real de gerenciamento de despesas pessoais via terminal.
+# 💰 Gerenciador de Despesas Pessoais (Python/Tkinter)
 
-O foco do projeto é sair de exercícios isolados e aplicar boas práticas de organização, modularização
-e persistência de dados, resultando em um código claro, evolutivo e adequado para portfólio.
+## 🔹 Descrição
 
----
+Aplicativo de gerenciamento de despesas pessoais desenvolvido em Python com interface gráfica em Tkinter.
+Permite adicionar, listar, filtrar e deletar despesas de forma segura e intuitiva, mantendo uma arquitetura limpa GUI + CORE.
 
-## 🎯 Funcionalidades
+## 🔹 Funcionalidades
 
-- Adicionar despesas com:
-  - valor
-  - descrição
-  - categoria padronizada
-- Listar todas as despesas cadastradas
-- Exibir estatísticas:
-  - total gasto
-  - média das despesas
-  - maior e menor valor
-- Filtrar despesas por categoria
-- Persistência de dados em arquivo JSON
-- Interface via menu no terminal (CLI)
+## 📝 Adicionar Despesa
 
----
+Insere valor, descrição, categoria e data.
 
-## 🧱 Estrutura do Projeto
+IDs gerados automaticamente no CORE.
 
-```text
-.
-├── despesas_principal.py      # Ponto de entrada do programa
-├── despesas_menu.py           # Exibição do menu e opções
-├── despesas_adiciona.py       # Inclusão de despesas e escolha de categorias
-├── despesas_listar.py         # Listagem de despesas
-├── despesas_filtrar.py        # Filtros (ex: por categoria)
-├── despesas_calculos.py       # Estatísticas e cálculos
-├── despesas_arquiva.py        # Persistência (JSON)
-└── despesas.json              # Arquivo de dados
+## 📊 Listar Despesas
+
+ - Tabela organizada com todas as despesas.
+
+ - Coluna ID usada internamente para DELETE.
+
+## 🔍 Filtrar Despesas
+
+ - Por categoria ou período.
+
+ - Resultados exibidos na mesma tela, mantendo contexto.
+
+## ❌ Excluir Despesa (DELETE)
+
+ - Seleção direta da linha na tabela.
+
+ - Confirmação antes de apagar, evitando erros.
+
+## ✅ Validação de Dados
+
+ - Valores, descrições, categorias e datas validados no CORE.
+
+## 🏗 Arquitetura Limpa
+
+ - Lógica de dados isolada no CORE.
+
+ - GUI apenas exibe dados e recebe inputs do usuário.
+
+## 🔹 Tecnologias
+
+ - Python 3.13
+
+ - kinter (GUI)
+
+ - SON (armazenamento de dados)
+
+## 🔹 Estrutura do Projeto
 ```
----
-## 🧠 Conceitos Aplicados
+gerenciador_despesas/
+├── gui/
+│   ├── telas/
+│   │   ├── tela_adicionar.py
+│   │   ├── tela_listar.py
+│   │   └── ...
+│   └── app.py
+├── core/
+│   ├── despesas_arquivo_core.py
+│   ├── despesas_validacoes_core.py
+│   └── ...
+├── data/
+│   └── despesas.json
+└── README.md
+```
 
-- Estruturas de dados (listas e dicionários)
-- Modularização e separação de responsabilidades
-- Funções puras para regras de negócio
-- Persistência de dados com JSON
-- Tratamento de exceções (try/except)
-- Boas práticas de organização de código
-- Padrão de commits (Conventional Commits)
----
-## 📌 Arquitetura
-
-O projeto segue uma separação clara entre:
-
-- Interface (UI)
-  
-Entrada de dados e exibição de informações ao usuário.
-
-- Domínio (Regras de Negócio)
-  
-Funções responsáveis apenas por processar dados, sem input ou print.
-
-Essa abordagem facilita manutenção, testes e futuras evoluções
-(ex: interface gráfica ou aplicação web).
----
-
-## 🚀 Como Executar
+## 🔹 Como Rodar
 
 1- Clone o repositório:
+```bash
+git clone <URL_DO_REPOSITORIO>
 ```
-git clone <url-do-repositorio>
+2- Entre na Pasta do Projeto
+```bash
+cd gerenciador_despesas
+```
+3- Execute a aplicação:
+```bash
+python gui/main.py
 ```
 
-2- Acesse a pasta do projeto:
-```
-cd gerenciador-despesas-python
-```
+## 🔹 Próximos Passos (Planejados)
 
-3- Execute o programa:
-```
-python despesas_principal.py
-```
----
-## 🔮 Próximos Passos (Roadmap)
+ - 📈 Estatísticas avançadas com gráficos.
 
-- Adicionar data da despesa
-- Relatórios por período
-- Totais por categoria
-- Melhorias na experiência do usuário
-- Evolução para interface gráfica ou web
----
-## 🧑‍💻 Autor
+ - 📂 Exportação de despesas para CSV.
 
-Projeto desenvolvido como parte da jornada de aprendizado em programação,
-com foco em Python, lógica, organização e boas práticas.
+ - 🎨 Melhorias na UX (tema visual, cores, ícones).
+
 

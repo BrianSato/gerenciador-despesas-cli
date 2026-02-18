@@ -1,0 +1,26 @@
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+
+# ===== Ambientes virtuais =====
+venv/
+.env/
+
+# ===== IDEs =====
+.idea/
+
+# ===== Arquivos locais / dados =====
+data/despesas.json
+gui/despesas.json
+explicacoes_codigos.txt
+
+# ===== Sistema =====
+.DS_Store
+Thumbs.db
+
+# ===== PyInstaller =====
+build/
+dist/
+*.spec
+
