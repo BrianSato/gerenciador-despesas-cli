@@ -1,94 +1,64 @@
+# 💰 Gerenciador de Despesas
 
-# 💰 Gerenciador de Despesas Pessoais (Python/Tkinter)
+Aplicação desenvolvida em Python com interface gráfica utilizando Tkinter, voltada para controle e organização de despesas pessoais.
 
-## 🔹 Descrição
+O projeto evoluiu de uma versão inicial em terminal para uma aplicação com interface gráfica e executável funcional.
 
-Aplicativo de gerenciamento de despesas pessoais desenvolvido em Python com interface gráfica em Tkinter.
-Permite adicionar, listar, filtrar e deletar despesas de forma segura e intuitiva, mantendo uma arquitetura limpa GUI + CORE.
+⸻
 
-## 🔹 Funcionalidades
+## 🚀 Funcionalidades
 
-## 📝 Adicionar Despesa
+	•	✅ Adicionar despesas
+	•	📋 Listar registros
+	•	🔎 Filtrar despesas
+	•	📊 Visualizar estatísticas
+	•	🖥 Interface gráfica construída com Tkinter
+	•	📦 Versão executável gerado para uso local
 
-Insere valor, descrição, categoria e data.
+⸻
 
-IDs gerados automaticamente no CORE.
+## 🛠 Tecnologias Utilizadas
 
-## 📊 Listar Despesas
+	•	Python 3
+	•	Tkinter (GUI)
+	•	Estrutura modular com separação entre lógica e interface
 
- - Tabela organizada com todas as despesas.
+⸻
 
- - Coluna ID usada internamente para DELETE.
+## 📷 Interface
 
-## 🔍 Filtrar Despesas
+'''bash
+![Menu Principal](assets/8634092f-ed7f-4546-8402-da66e8dad1eb.jpeg)
+'''
+⸻
 
- - Por categoria ou período.
+## ▶️ Como executar
 
- - Resultados exibidos na mesma tela, mantendo contexto.
+Executar pelo código
+	1.	Clone o repositório:
+ '''bash
+ git clone https://github.com/BrianSato/gerenciador-despesas-cli.git
+ '''
+ 2.	Acesse a pasta do projeto
+	3.	Execute o arquivo principal:
+ '''bash
+ python nome_do_arquivo_principal.py
+ '''
+ 
+⸻
 
-## ❌ Excluir Despesa (DELETE)
+ ## 📌 Objetivo do Projeto
 
- - Seleção direta da linha na tabela.
+Este projeto foi desenvolvido com o objetivo de consolidar conhecimentos em:
+	•	Estruturação de projetos
+	•	Separação de responsabilidades
+	•	Construção de interfaces gráficas com Tkinter
+	•	Evolução incremental de software
 
- - Confirmação antes de apagar, evitando erros.
+⸻
 
-## ✅ Validação de Dados
+# 👨‍💻 Autor
 
- - Valores, descrições, categorias e datas validados no CORE.
+Desenvolvido por Brian Sato.
 
-## 🏗 Arquitetura Limpa
-
- - Lógica de dados isolada no CORE.
-
- - GUI apenas exibe dados e recebe inputs do usuário.
-
-## 🔹 Tecnologias
-
- - Python 3.13
-
- - kinter (GUI)
-
- - SON (armazenamento de dados)
-
-## 🔹 Estrutura do Projeto
-```
-gerenciador_despesas/
-├── gui/
-│   ├── telas/
-│   │   ├── tela_adicionar.py
-│   │   ├── tela_listar.py
-│   │   └── ...
-│   └── app.py
-├── core/
-│   ├── despesas_arquivo_core.py
-│   ├── despesas_validacoes_core.py
-│   └── ...
-├── data/
-│   └── despesas.json
-└── README.md
-```
-
-## 🔹 Como Rodar
-
-1- Clone o repositório:
-```bash
-git clone <URL_DO_REPOSITORIO>
-```
-2- Entre na Pasta do Projeto
-```bash
-cd gerenciador_despesas
-```
-3- Execute a aplicação:
-```bash
-python gui/main.py
-```
-
-## 🔹 Próximos Passos (Planejados)
-
- - 📈 Estatísticas avançadas com gráficos.
-
- - 📂 Exportação de despesas para CSV.
-
- - 🎨 Melhorias na UX (tema visual, cores, ícones).
-
-
+ 
